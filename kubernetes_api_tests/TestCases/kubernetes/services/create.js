@@ -18,12 +18,13 @@ response.println(JSON.stringify(answer));
 response.flush();
 response.close();
 
-function generateServiceBody(name, application, protocol, port, targetPort, type) {
+function generateServiceBody(name, namespace, application, protocol, port, targetPort, type) {
 	return {
 	    "kind": "Service",
 	    "apiVersion": "v1",
 	    "metadata": {
-	        "name": name
+	        "name": name,
+	        "namespace": namespace
 	    },
 	    "spec": {
 	        "selector": {

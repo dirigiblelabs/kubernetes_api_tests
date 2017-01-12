@@ -18,12 +18,12 @@ response.println(JSON.stringify(answer));
 response.flush();
 response.close();
 
-function generateDeploymentBody(namespace, application, replicas, image, containerPort, protocol, env) {
+function generateDeploymentBody(name, namespace, application, replicas, image, containerPort, protocol, env) {
 	return {
 	    "kind": "Deployment",
 	    "apiVersion": "extensions/v1beta1",
 	    "metadata": {
-	        "name": application,
+	        "name": name,
 	        "namespace": namespace,
 	        "labels": {
 	            "application": application
